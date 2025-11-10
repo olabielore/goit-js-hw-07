@@ -7,7 +7,7 @@ const onTextInput = (event) => {
   if (inputValue === "") {
     spanEl.textContent = "Anonymous";
   } else {
-    spanEl.textContent(inputValue);
+    spanEl.textContent = inputValue;
   }
 };
 

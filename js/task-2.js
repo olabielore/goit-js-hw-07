@@ -50,7 +50,7 @@ for (const img of images) {
   imgEl.style.height = "300px";
 
   imgEl.src = img.url;
-  imgEl.alt = img.url;
+  imgEl.alt = img.alt;
 
   liEl.append(imgEl);
   ulEl.append(liEl);
