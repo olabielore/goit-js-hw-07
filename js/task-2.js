@@ -25,33 +25,26 @@ const images = [
   },
 ];
 
-const galleryItemEl = document.createElement("li");
-galleryItemEl.classList.add("gallery-item");
+function addListOfImgs(images) {
+  const ulEl = document.querySelector(".gallery");
+  const allLiElements = [];
 
-const galleryImgEl = document.createElement("img");
-galleryImgEl.alt = "White and Black Long Fur Cat";
-galleryImgEl.classList.add("gallery-img");
-galleryImgEl.src =
-  "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260";
+  for (const img of images) {
+    const liEl = document.createElement("li");
+    const imgEl = document.createElement("img");
 
-galleryItemEl.append(galleryImgEl);
+    imgEl.style.width = "360px";
+    imgEl.style.height = "300px";
 
-const refs = {
-  galleryList: document.querySelector(".gallery"),
-};
+    imgEl.src = img.url;
+    imgEl.alt = img.alt;
 
-const ulEl = document.querySelector(".gallery");
+    liEl.append(imgEl);
 
-for (const img of images) {
-  const liEl = document.createElement("li");
-  const imgEl = document.createElement("img");
+    allLiElements.push(liEl);
+  }
 
-  imgEl.style.width = "360px";
-  imgEl.style.height = "300px";
-
-  imgEl.src = img.url;
-  imgEl.alt = img.alt;
-
-  liEl.append(imgEl);
-  ulEl.append(liEl);
+  ulEl.append(...allLiElements);
 }
+
+addListOfImgs(images);
